@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <body>
+    <input type="checkbox" id="cart">
+    <label for="cart" class="label-cart"><span class="fas fa-shopping-cart"></span></label>
+
+    <h3 class="logo"> DAD BERGER</h3>
+
+    
+
+    <div class="dashboard">
+        <div class="dashboard-banner">
+            <img src="images/images-banner.jpg">
+            <div class="banner-promo">
+                <h1><span>50% OFF</span><br>
+                Tasty Food <br> On Your Hand</h1>
+            </div>
+        </div>
+
+        <h3 class="dashboard-title">Recommend Food For You</h3>
+        <div class="dashboard-menu">
+            <a href="#">Favorites</a>
+            <a href="#">Best Seller</a>
+            <a href="#">Near Me</a>
+            <a href="#">Top Rated</a>
+            <a href="#">All</a>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="dashboard-card">
+                <img class="card-image" src="images/images1.jpg">
+                <div class="card-detail">
+                    <h4>Amazing Pizza<span>$30</span></h4>
+                    <p>okinam</p>
+                    <button class="add-to-cart-btn"><span class="fas fa-shopping-cart"></span> Add to Cart</button>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <img class="card-image" src="images/images2.jpg">
+                <div class="card-detail">
+                    <h4>Salad<span>$30</span></h4>
+                    <p>okinam</p>
+                    <button class="add-to-cart-btn"><span class="fas fa-shopping-cart"></span> Add to Cart</button>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <img class="card-image" src="images/images3.jpg">
+                <div class="card-detail">
+                    <h4>Pancake<span>$30</span></h4>
+                    <p>okinam</p>
+                    <button class="add-to-cart-btn"><span class="fas fa-shopping-cart"></span> Add to Cart</button>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <img class="card-image" src="images/images4.jpg">
+                <div class="card-detail">
+                    <h4>Steak<span>$30</span></h4>
+                    <p>okinam</p>
+                    <button class="add-to-cart-btn"><span class="fas fa-shopping-cart"></span> Add to Cart</button>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <img class="card-image" src="images/images5.jpg">
+                <div class="card-detail">
+                    <h4>Ice Cream<span>$30</span></h4>
+                    <p>okinam</p>
+                    <button class="add-to-cart-btn"><span class="fas fa-shopping-cart"></span> Add to Cart</button>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <img class="card-image" src="images/images6.jpg">
+                <div class="card-detail">
+                    <h4>Burger<span>$30</span></h4>
+                    <p>okinam</p>
+                    <button class="add-to-cart-btn"><span class="fas fa-shopping-cart"></span> Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-order">
+      <label for="cart" class="close-icon"><span class="fas fa-times"></span></label>
+        <h3>Order Menu</h3>
+      
+        
+        <button class="checkout">
+            Checkout
+        </button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        var addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    
+        addToCartButtons.forEach(function (button) {
+          button.addEventListener('click', function () {
+            var card = button.closest('.dashboard-card');
+            var productName = card.querySelector('.card-detail h4').innerText;
+            var productPrice = card.querySelector('.card-detail h4 span').innerText;
+            var productImage = card.querySelector('.card-image').src;
+    
+            var orderCard = document.createElement('div');
+            orderCard.classList.add('order-card');
+    
+            orderCard.innerHTML = `
+              <img class="order-image" src="${productImage}" alt="${productName}">
+              <div class="order-detail">
+                <p>${productName}</p>
+                <input type="number" value="1" min="1" class="order-quantity">
+                <p>${productPrice}</p>
+              </div>
+            `;
+    
+            var menuOrderWrapper = document.querySelector('.order-wrapper');
+            menuOrderWrapper.appendChild(orderCard);
+          });
+        });
+      });
+    </script>
+</body>
+</html>
